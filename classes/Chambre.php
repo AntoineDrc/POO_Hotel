@@ -11,12 +11,14 @@ class Chambre
     private array $reservations;
 
     // Construction de la classe Chambre
-    public function __construct(string $numero, int $prix, bool $statut, bool $wifi)
+    public function __construct(string $numero, int $prix, bool $statut, bool $wifi, Hotel $hotel)
     {
         $this->numero = $numero;
         $this->prix = $prix;
         $this->statut = $statut;
         $this->wifi = $wifi;
+        $this->hotel = $hotel;
+        $this->hotel->addChambre($this);
         $this->reservations = [];
     }
 
