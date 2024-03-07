@@ -1,20 +1,18 @@
 <?php 
 
 // Création d'une classe Hotel
-class Hotel 
+class Hotel
 {
     private string $nom;
-    private string $prenom;
-    private string $telephone;
-    private DateTime $dateNaissance;
+    private string $adresse;
+    private string $nbEtoile;
 
-    // Constructeur de la classe Hotel
-    public function __construct(string $nom, string $prenom, string $telephone, string $dateNaissance) 
+    // Création du constructeur de la classe Hotel
+    public function __construct(string $nom, string $adresse, string $nbEtoile)
     {
         $this->nom = $nom;
-        $this->prenom = $prenom;
-        $this->telephone = $telephone;
-        $this->dateNaissance = New DateTime($dateNaissance);
+        $this->adresse = $adresse;
+        $this->nbEtoile = $nbEtoile;
     }
 
     // Création des getters / setters
@@ -30,40 +28,29 @@ class Hotel
         return $this;
     }
 
-    public function getPrenom()
+    public function getAdresse()
     {
-        return $this->prenom;
+        return $this->adresse;
     }
 
-    public function setPrenom($prenom)
+    public function setAdresse($adresse)
     {
-        $this->prenom = $prenom;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
-    public function getTelephone()
+    public function getNbEtoile()
     {
-        return $this->telephone;
+        return $this->nbEtoile;
     }
 
-    public function setTelephone($telephone)
+    public function setNbEtoile($nbEtoile)
     {
-        $this->telephone = $telephone;
-
-        return $this;
-    }
-
-    public function getDateNaissance()
-    {
-        return $this->dateNaissance;
-    }
-
-    public function setDateNaissance($dateNaissance)
-    {
-        $this->dateNaissance = $dateNaissance;
+        $this->nbEtoile = $nbEtoile;
 
         return $this;
     }
 }
+
 ?>
