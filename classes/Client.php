@@ -7,6 +7,7 @@ class Client
     private string $prenom;
     private string $telephone;
     private DateTime $dateNaissance;
+    private array $reservations;
 
     // Constructeur de la classe Client
     public function __construct(string $nom, string $prenom, string $telephone, string $dateNaissance) 
@@ -15,6 +16,7 @@ class Client
         $this->prenom = $prenom;
         $this->telephone = $telephone;
         $this->dateNaissance = New DateTime($dateNaissance);
+        $this->reservations = [];
     }
 
     // Création des getters / setters
@@ -64,6 +66,12 @@ class Client
         $this->dateNaissance = $dateNaissance;
 
         return $this;
+    }
+
+    // Méthode pour ajouter des reservations automatiquement aux client
+    public function addReservation(Reservation $reservation)
+    {
+        $this->reservations[] = $reservation;
     }
 }
 ?>

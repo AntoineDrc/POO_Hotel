@@ -6,6 +6,7 @@ class Hotel
     private string $nom;
     private string $adresse;
     private string $nbEtoile;
+    private array $chambres;
 
     // Création du constructeur de la classe Hotel
     public function __construct(string $nom, string $adresse, string $nbEtoile)
@@ -13,6 +14,7 @@ class Hotel
         $this->nom = $nom;
         $this->adresse = $adresse;
         $this->nbEtoile = $nbEtoile;
+        $this->chambres = [];
     }
 
     // Création des getters / setters
@@ -50,6 +52,12 @@ class Hotel
         $this->nbEtoile = $nbEtoile;
 
         return $this;
+    }
+
+    // Création d'une méthode pour ajouter des chambres automatiquement à l'hotel
+    public function addChambre(Chambre $chambre)
+    {
+        $this->chambres[] = $chambre;   
     }
 }
 

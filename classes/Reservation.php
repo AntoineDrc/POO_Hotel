@@ -63,6 +63,12 @@ class Reservation
 
         return $this;
     }
+
+    // Méthode pour calculer le montant total à régler pour la reservation à partir du nombre de nuits passés à l'hotel
+    public function montantTotal()
+    {
+
+    }
 }
 
 ?>

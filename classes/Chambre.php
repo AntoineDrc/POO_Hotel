@@ -8,6 +8,7 @@ class Chambre
     private bool $statut;
     private bool $wifi;
     private Hotel $hotel;
+    private array $reservations;
 
     // Construction de la classe Chambre
     public function __construct(string $numero, int $prix, bool $statut, bool $wifi)
@@ -16,6 +17,7 @@ class Chambre
         $this->prix = $prix;
         $this->statut = $statut;
         $this->wifi = $wifi;
+        $this->reservations = [];
     }
 
     // Création des getters / setters
@@ -77,6 +79,12 @@ class Chambre
         $this->hotel = $hotel;
 
         return $this;
+    }
+
+    // Méthode pour ajouter des reservations automatiquement aux chambres
+    public function addReservation(Reservation $reservation)
+    {
+        $this->reservations[] = $reservation;
     }
 }
 ?>
