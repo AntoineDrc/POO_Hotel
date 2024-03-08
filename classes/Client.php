@@ -58,7 +58,7 @@ class Client
 
     public function getDateNaissance()
     {
-        return $this->dateNaissance;
+        return $this->dateNaissance->format("d/m/Y");
     }
 
     public function setDateNaissance($dateNaissance)
@@ -72,6 +72,12 @@ class Client
     public function addReservation(Reservation $reservation)
     {
         $this->reservations[] = $reservation;
+    }
+
+    // Création d'un méthode toString
+    public function __toString()
+    {
+        return "Le client s'appelle " . $this->nom . " " . $this->prenom . " il est née le " . $this->getDateNaissance() . " et son numéro est : " . $this->telephone;
     }
 }
 ?>

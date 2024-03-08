@@ -11,8 +11,10 @@ $hotel2 = new Hotel("Regent", "61 rue Dauphine 75006 PARIS", "****");
 
 $client1 = new Client("MURMANN", "Micka", "06 12 74 45 74", "12-09-1986");
 
-echo $client1->getNom();
-echo $hotel1->getAdresse();
+$chambre1 = new Chambre("1", 150, true, true, $hotel1);
 
+$reservation1 = new Reservation("08-03-2024", "10-03-2024", $chambre1, $client1);
+
+echo $reservation1->nbNuit();
 
 ?>

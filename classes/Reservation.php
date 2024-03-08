@@ -22,7 +22,7 @@ class Reservation
     // Création des getters / setters
     public function getDateEntree()
     {
-        return $this->dateEntree;
+        return $this->dateEntree->format("d/m/Y H:i");
     }
 
     public function setDateEntree($dateEntree)
@@ -34,7 +34,7 @@ class Reservation
 
     public function getDateSortie()
     {
-        return $this->dateSortie;
+        return $this->dateSortie->format("d/m/Y H:i");
     }
 
     public function setDateSortie($dateSortie)
@@ -68,11 +68,19 @@ class Reservation
         return $this;
     }
 
+    // Méthode pour calculer le nombre de nuits passé à l'hotel
+    public function nbNuit()
+    {
+        $nbNuit = date_diff($this->dateEntree, $this->dateSortie);
+        return $nbNuit->d;
+    }
+
     // Méthode pour calculer le montant total à régler pour la reservation à partir du nombre de nuits passés à l'hotel
     public function montantTotal()
     {
 
     }
 }
+
 
 ?>
