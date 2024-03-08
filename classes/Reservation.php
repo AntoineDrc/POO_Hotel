@@ -78,7 +78,7 @@ class Reservation
     // Méthode pour calculer le montant total à régler pour la reservation à partir du nombre de nuits passés à l'hotel
     public function montantTotal()
     {
-
+        return $montantTotal = $this->nbNuit() * $this->chambre->getPrix() . " €";
     }
 }
 
