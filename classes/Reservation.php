@@ -84,7 +84,7 @@ class Reservation
     // Méthode to string pour afficher les info de la reservation
     public function __toString()
     {
-        $this->client->__toString() . " à passé " . $this->nbNuit() . " et il doit règler : " . $this->montantTotal();
+        return $this->client->__toString() . " à passé " . $this->nbNuit() . " et il doit règler : " . $this->montantTotal();
     }
 }
 

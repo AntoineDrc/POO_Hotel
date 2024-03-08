@@ -15,6 +15,9 @@ $chambre1 = new Chambre("1", 150, true, true, $hotel1);
 
 $reservation1 = new Reservation("08-03-2024", "10-03-2024", $chambre1, $client1);
 
-echo $client1;
+echo $client1 . "<br>";
+echo $hotel1 . "<br>";
+echo $chambre1 . "<br>";
+echo $reservation1 . "<br>";
 
 ?>

@@ -59,6 +59,13 @@ class Hotel
     {
         $this->chambres[] = $chambre;   
     }
+
+    // Création d'une méthode toString
+    public function __toString()
+    {
+        return $this->nom . " " . $this->nbEtoile . " " . $this->adresse;
+    }
 }
+        
 
 ?>
