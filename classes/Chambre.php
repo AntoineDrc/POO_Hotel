@@ -89,10 +89,24 @@ class Chambre
         $this->reservations[] = $reservation;
     }
 
+    // Méthode pour afficher toutes les réservations d'une chambre
+    public function showChambreReservation()
+    {
+        $info = $this . " est réservé :<br>";
+
+        foreach($this->reservations as $reservation)
+        {
+            $info .= $reservation . "<br>";
+        }
+            return $info;
+
+
+    }
+
     // Méthode toString
     public function __toString()
     {
-        return "Chambre : " . $this->numero;
+        return "Chambre " . $this->numero;
     }
 }
 ?>

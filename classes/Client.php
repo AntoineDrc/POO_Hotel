@@ -74,10 +74,22 @@ class Client
         $this->reservations[] = $reservation;
     }
 
+    // Méthode pour afficher toutes les réservations d'un client
+    public function showClientReservation()
+    {
+        $info = "Réservation de " . $this . "<br>";
+        
+        foreach($this->reservations as $reservation)
+        {
+            $info .= $reservation . "<br>";
+        }
+        return $info;
+    }
+
     // Création d'un méthode toString
     public function __toString()
     {
-        return "Le client s'appelle " . $this->nom . " " . $this->prenom . " il est née le " . $this->getDateNaissance() . " et son numéro est : " . $this->telephone;
+        return $this->nom . " " . $this->prenom;
     }
 }
 ?>
