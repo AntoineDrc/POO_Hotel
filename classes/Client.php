@@ -71,21 +71,41 @@ class Client
     // Méthode pour ajouter des reservations automatiquement aux client
     public function addReservation(Reservation $reservation)
     {
-        $this->reservations[] = $reservation;
+        $this->reservations[] = $reservation; // Ajoute une réservation à la liste des réservations du client, liant ainsi le client à ses réservations.
     }
 
     // Méthode pour afficher toutes les réservations d'un client
     public function showClientReservation()
-    {
+    {   
+        // Afficher le nom du client et le nombre total de ses réservations
         $info = "Réservation de " . $this . "<br>";
         $info .= count($this->reservations) . "Réservations<br>";
+
+        // Parcourt toutes les réservations du client pour inclure les détails dans l'information
         foreach($this->reservations as $reservation)
         {
-            $chambre = $reservation->getChambre();
-            $hotel = $chambre->getHotel();
+            $chambre = $reservation->getChambre(); // Obtient la chambre pour chaque réservation
+            $hotel = $chambre->getHotel(); // Obtient l'hôtel de cette chambre
+
+            // Détails de chaque réservation, y compris l'hôtel, la chambre, et les dates
             $info .= "Hotel " . $hotel->__toString() . " / Chambre : " . $chambre->getNumero() . " - " . $chambre->getPrix() . "€ " . $reservation->__toString() . "<br>";
         }
-        return $info;
+            // Montant total à payer pour toutes les réservations du client
+             $info .= "Total : " . $this->montantTotalReservation() . " €";
+             return $info;
+    }
+
+    // Méthode pour calculer le montant total à regler pour toutes ses reservations
+    public function montantTotalReservation()
+    {
+        $montantTotal = 0;
+
+        // Parcourt chaque réservation du client et additionne leur montant total
+        foreach($this->reservations as $reservation)
+        {
+            $montantTotal += $reservation->montantTotal();
+        }
+        return $montantTotal;
     }
 
     // Création d'un méthode toString

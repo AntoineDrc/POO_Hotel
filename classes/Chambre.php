@@ -10,7 +10,7 @@ class Chambre
     private Hotel $hotel;
     private array $reservations;
 
-    // Construction de la classe Chambre
+    // Constructeur de la classe Chambre
     public function __construct(string $numero, int $prix, bool $statut, bool $wifi, Hotel $hotel)
     {
         $this->numero = $numero;
@@ -18,6 +18,7 @@ class Chambre
         $this->statut = $statut;
         $this->wifi = $wifi;
         $this->hotel = $hotel;
+        // L'ajout de la chambre à l'hôtel se fait directement dans le constructeur
         $this->hotel->addChambre($this);
         $this->reservations = [];
     }
@@ -91,20 +92,23 @@ class Chambre
     // Méthode pour ajouter des reservations automatiquement aux chambres
     public function addReservation(Reservation $reservation)
     {
-        $this->reservations[] = $reservation;
+        $this->reservations[] = $reservation; // IMPORTANT : Cette méthode ajoute un objet Reservation au tableau des réservations associées à cette chambre, établissant ainsi la relation entre une chambre et ses réservations.
     }
 
     // Méthode pour afficher toutes les réservations d'une chambre
     public function showChambreReservation()
     {
+        // Récupère l'hôtel associé pour inclure son nom dans les informations
         $hotel = $this->getHotel();
         $info = "Réservations de l'hotêl " . $hotel . "<br>";
         $info .= count($this->getReservations()) . " Réservations<br>";
 
-
+        // Parcourt toutes les réservations de la chambre pour ajouter leurs détails à la chaîne d'information
         foreach($this->reservations as $reservation)
         {
-            
+            $client= $reservation->getClient(); // Récupère le client de chaque réservation
+            $info .= $client . " ";
+            $info .= $this;
             $info .= $reservation . "<br>";
         }
             return $info;
