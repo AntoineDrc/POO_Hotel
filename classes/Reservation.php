@@ -80,6 +80,12 @@ class Reservation
     {
         return $montantTotal = $this->nbNuit() * $this->chambre->getPrix() . " €";
     }
+
+    // Méthode to string pour afficher les info de la reservation
+    public function __toString()
+    {
+        $this->client->__toString() . " à passé " . $this->nbNuit() . " et il doit règler : " . $this->montantTotal();
+    }
 }
 
 
