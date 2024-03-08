@@ -60,10 +60,32 @@ class Hotel
         $this->chambres[] = $chambre;   
     }
 
+    // Méthode pour afficher les informations de l'hôtel et les réservations pour chaque chambre    
+    public function infoHotel()
+    {
+        $info = $this ."<br>"
+        . $this->adresse . "<br>"
+        . "Nombre de chambres : " . count($this->chambres) . "<br>";
+
+        $chambresReservees = 0;
+        foreach($this->chambres as $chambre)
+        {
+            if(count($chambre->getReservations()) > 0)
+            {
+                $chambresReservees++;
+                // $info .= $chambre->showChambreReservation();
+            }
+        }
+         $info .= "Chambres réservées : " . $chambresReservees . "<br>";
+         $info .= "Chambres disponibles : " . count($this->chambres) - ($chambresReservees) . "<br>";
+
+         return $info;
+    }
+
     // Création d'une méthode toString
     public function __toString()
     {
-        return $this->nom . " " . $this->nbEtoile . " " . $this->adresse;
+        return $this->nom . " " . $this->nbEtoile;
     }
 }
         

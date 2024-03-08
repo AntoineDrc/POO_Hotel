@@ -83,6 +83,11 @@ class Chambre
         return $this;
     }
 
+    public function getReservations()
+   {
+       return $this->reservations;
+   }
+   
     // Méthode pour ajouter des reservations automatiquement aux chambres
     public function addReservation(Reservation $reservation)
     {
@@ -99,8 +104,6 @@ class Chambre
             $info .= $reservation . "<br>";
         }
             return $info;
-
-
     }
 
     // Méthode toString
@@ -108,5 +111,6 @@ class Chambre
     {
         return "Chambre " . $this->numero;
     }
+
 }
 ?>

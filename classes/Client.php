@@ -78,10 +78,12 @@ class Client
     public function showClientReservation()
     {
         $info = "Réservation de " . $this . "<br>";
-        
+        $info .= count($this->reservations) . "Réservations<br>";
         foreach($this->reservations as $reservation)
         {
-            $info .= $reservation . "<br>";
+            $chambre = $reservation->getChambre();
+            $hotel = $chambre->getHotel();
+            $info .= "Hotel " . $hotel->__toString() . " / Chambre : " . $chambre->getNumero() . " - " . $chambre->getPrix() . "€ " . $reservation->__toString() . "<br>";
         }
         return $info;
     }
