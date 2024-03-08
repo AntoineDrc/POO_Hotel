@@ -87,7 +87,7 @@ class Chambre
    {
        return $this->reservations;
    }
-   
+
     // Méthode pour ajouter des reservations automatiquement aux chambres
     public function addReservation(Reservation $reservation)
     {
@@ -97,10 +97,14 @@ class Chambre
     // Méthode pour afficher toutes les réservations d'une chambre
     public function showChambreReservation()
     {
-        $info = $this . " est réservé :<br>";
+        $hotel = $this->getHotel();
+        $info = "Réservations de l'hotêl " . $hotel . "<br>";
+        $info .= count($this->getReservations()) . " Réservations<br>";
+
 
         foreach($this->reservations as $reservation)
         {
+            
             $info .= $reservation . "<br>";
         }
             return $info;

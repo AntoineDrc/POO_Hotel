@@ -17,7 +17,11 @@ $chambre2 = new Chambre("2", 200, true, true, $hotel1);
 $reservation1 = new Reservation("08-03-2024", "10-03-2024", $chambre1, $client1);
 $reservation2 = new Reservation("12-03-2024", "15-03-2024", $chambre1, $client1);
 
-echo $client1->showClientReservation() . "<br>";
+echo $hotel1->infoHotel() . "<br><br>";
+
+echo $chambre1->showChambreReservation() . "<br><br>";
+
+echo $client1->showClientReservation() . "<br><br>";
 
 
 ?>
