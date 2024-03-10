@@ -23,7 +23,7 @@ class Reservation
     // Création des getters / setters
     public function getDateEntree()
     {
-        return $this->dateEntree->format("d/m/Y H:i");
+        return $this->dateEntree->format("d/m/Y");
     }
 
     public function setDateEntree($dateEntree)
@@ -35,7 +35,7 @@ class Reservation
 
     public function getDateSortie()
     {
-        return $this->dateSortie->format("d/m/Y H:i");
+        return $this->dateSortie->format("d/m/Y");
     }
 
     public function setDateSortie($dateSortie)

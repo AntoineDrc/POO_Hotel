@@ -87,24 +87,50 @@ class Hotel
     // Méthode pour affiche le statut des chambres
     public function statutChambre()
     {
-        $info = "Statut des chambres de l'hôtel " . $this->nom;
-        foreach ($this->chambres as $chambre)
-        {
-            $prix = $chambre->getPrix();
-            $wifi = $chambre->getWifi();
-            $statut = $chambre->getStatut();
-            $info = $chambre->__toString() . " " . $prix . " " . $wifi . " " . $info;
-        }
-        return $info . "<br>";
+        $info = "Statut des chambres de <strong>l'hôtel " . $this->__toString() . "</strong><br>";
+        $info .=
+        "<table cellpadding='10'>
+            <thead>
+                <tr>
+                    <th>Chambre</th>
+                    <th>Prix</th>
+                    <th>Wifi</th>
+                    <th>Statut</th>
+                </tr>
+            </thead>
+            <tbody>";
+            foreach ($this->chambres as $chambre)
+            {
+                $wifi = $chambre->getWifi() ? "Oui" : "Non";
+                $statut = $chambre->getStatut() ? "Disponible" : "Reservée";
+
+                $info .= "<tr>
+                            <td>" . $chambre->__toString() . "</td>
+                            <td>" . $chambre->getPrix() . "€</td>
+                            <td>" . $wifi . "</td>";
+                
+                if ($chambre->getStatut()) {
+                    $info .= "<td style='background-color: #90EE90;'>" . $statut . "</td>";
+                } else {
+                    $info .= "<td>" . $statut . "</td>";
+                }
+                $info .= "</tr>";
+            }   
+            $info .= 
+            "</tbody>
+        </table>";
+        return $info;
     }
 
+
+    
     // Création d'une méthode toString
     public function __toString()
     {
         return $this->nom . " " . $this->nbEtoile;
     }
 }
-        
+
 
 ?>
-
+    <!-- $info .= $chambre->__toString() . " " . $chambre->getPrix() . "€" . " " . ($chambre->getWifi() ? "oui" : "Non") . " " . ($chambre->getStatut() ? "Disponible" : "Occupée") . "<br>"; -->
