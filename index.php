@@ -23,5 +23,33 @@ echo $chambre1->showChambreReservation() . "<br><br>";
 
 echo $client1->showClientReservation() . "<br><br>";
 
+echo $hotel1->statutChambre() . "<br>";
+
 
 ?>
+
+<!-- Création d'un tableau html -->
+<html>
+<table>
+    <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Wifi</th>
+            <th>Statut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+</html>

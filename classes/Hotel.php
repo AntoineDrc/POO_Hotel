@@ -84,6 +84,20 @@ class Hotel
          return $info;
     }
 
+    // Méthode pour affiche le statut des chambres
+    public function statutChambre()
+    {
+        $info = "Statut des chambres de l'hôtel " . $this->nom;
+        foreach ($this->chambres as $chambre)
+        {
+            $prix = $chambre->getPrix();
+            $wifi = $chambre->getWifi();
+            $statut = $chambre->getStatut();
+            $info = $chambre->__toString() . " " . $prix . " " . $wifi . " " . $info;
+        }
+        return $info . "<br>";
+    }
+
     // Création d'une méthode toString
     public function __toString()
     {
@@ -93,3 +107,4 @@ class Hotel
         
 
 ?>
+
