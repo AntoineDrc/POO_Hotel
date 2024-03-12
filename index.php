@@ -20,8 +20,9 @@ $reservation2 = new Reservation("12-03-2024", "15-03-2024", $chambre1, $client1)
 
 echo $hotel1->infoHotel() . "<br><br>";
 
-echo $chambre1->showChambreReservation() . "<br><br>";
+echo $hotel1->afficherReservations() . "<br><br>";
 
+echo $hotel2->afficherReservations() . "<br><br>";
 
 echo $client1->showClientReservation() . "<br><br><br>";
 

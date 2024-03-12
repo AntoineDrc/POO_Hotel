@@ -7,6 +7,7 @@ class Hotel
     private string $adresse;
     private string $nbEtoile;
     private array $chambres; // Un tableau pour stocker les objets Chambre associés à l'hotêl
+    private array $reservations;
 
     // Constructeur de la classe Hotel
     public function __construct(string $nom, string $adresse, string $nbEtoile)
@@ -15,6 +16,7 @@ class Hotel
         $this->adresse = $adresse;
         $this->nbEtoile = $nbEtoile;
         $this->chambres = []; // Initialisation du tableau des chambres
+        $this->reservations = [];
     }
 
     // Création des getters / setters
@@ -53,6 +55,33 @@ class Hotel
 
         return $this;
     }
+
+    // Méthode pour ajouter des reservations automatiquement aux chambres
+    public function addReservation(Reservation $reservation)
+    {
+        $this->reservations[] = $reservation; 
+    }
+
+    // Méthode pour afficher les réservations de l'hôtel
+    public function afficherReservations()
+    {
+        $info = "Réservations de l'hôtel " . $this->nom . "<br>";
+
+        if (empty($this->reservations)) {
+            $info .= "Aucune réservation !<br>";
+            return $info;
+        }
+
+        foreach ($this->reservations as $reservation) {        
+            $client= $reservation->getClient(); // Récupère le client de chaque réservation
+            $info .= $client . " ";
+            $info .= $this;
+            $info .= $reservation . "<br>";
+    
+        }
+            return $info;
+    }
+
 
     // Méthode pour ajouter des chambres automatiquement à l'hotel
     public function addChambre(Chambre $chambre)
@@ -122,8 +151,6 @@ class Hotel
         </table>";
         return $info;
     }
-
-
     
     // Création d'une méthode toString
     public function __toString()
