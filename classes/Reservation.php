@@ -17,6 +17,7 @@ class Reservation
         $this->client = $client;
         // Lorsqu'une réservation est créée, elle est ajoutée à la chambre et au client concernés
         $this->chambre->addReservation($this);
+        // $this->chambre->getHotel()->addReservation($this);
         $this->client->addReservation($this);
     }
 

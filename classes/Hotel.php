@@ -87,6 +87,7 @@ class Hotel
     // Méthode pour affiche le statut des chambres
     public function statutChambre()
     {
+        // 🛜
         $info = "Statut des chambres de <strong>l'hôtel " . $this->__toString() . "</strong><br>";
         $info .=
         "<table cellpadding='10'>
@@ -101,7 +102,7 @@ class Hotel
             <tbody>";
             foreach ($this->chambres as $chambre)
             {
-                $wifi = $chambre->getWifi() ? "Oui" : "Non";
+                $wifi = $chambre->getWifi() ? "🛜" : "Non";
                 $statut = $chambre->getStatut() ? "Disponible" : "Reservée";
 
                 $info .= "<tr>
@@ -112,7 +113,7 @@ class Hotel
                 if ($chambre->getStatut()) {
                     $info .= "<td style='background-color: #90EE90;'>" . $statut . "</td>";
                 } else {
-                    $info .= "<td>" . $statut . "</td>";
+                    $info .= "<td style='background-color: #F00020;'>" . $statut . "</td>";
                 }
                 $info .= "</tr>";
             }   

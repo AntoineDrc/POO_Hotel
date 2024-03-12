@@ -103,6 +103,7 @@ class Chambre
         $info = "Réservations de l'hotêl " . $hotel . "<br>";
         $info .= count($this->getReservations()) . " Réservations<br>";
 
+
         // Parcourt toutes les réservations de la chambre pour ajouter leurs détails à la chaîne d'information
         foreach($this->reservations as $reservation)
         {

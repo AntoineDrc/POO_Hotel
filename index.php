@@ -13,6 +13,7 @@ $client1 = new Client("MURMANN", "Micka", "06 12 74 45 74", "12-09-1986");
 
 $chambre1 = new Chambre("1", 150, true, true, $hotel1);
 $chambre2 = new Chambre("2", 200, true, true, $hotel1);
+$chambre3 = new Chambre(1, 120, false, false, $hotel1);
 
 $reservation1 = new Reservation("08-03-2024", "10-03-2024", $chambre1, $client1);
 $reservation2 = new Reservation("12-03-2024", "15-03-2024", $chambre1, $client1);
@@ -21,9 +22,11 @@ echo $hotel1->infoHotel() . "<br><br>";
 
 echo $chambre1->showChambreReservation() . "<br><br>";
 
+
 echo $client1->showClientReservation() . "<br><br><br>";
 
-echo $hotel1->statutChambre();
+echo $hotel1->statutChambre() . "<br>";
+
 
 
 ?>
