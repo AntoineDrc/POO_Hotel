@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 // Création d'une classe Client
-class Client 
+class Client
 {
     private string $nom;
     private string $prenom;
@@ -10,12 +10,12 @@ class Client
     private array $reservations;
 
     // Constructeur de la classe Client
-    public function __construct(string $nom, string $prenom, string $telephone, string $dateNaissance) 
+    public function __construct(string $nom, string $prenom, string $telephone, string $dateNaissance)
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->telephone = $telephone;
-        $this->dateNaissance = New DateTime($dateNaissance);
+        $this->dateNaissance = new DateTime($dateNaissance);
         $this->reservations = [];
     }
 
@@ -76,23 +76,22 @@ class Client
 
     // Méthode pour afficher toutes les réservations d'un client
     public function showClientReservation()
-    {   
+    {
         // Afficher le nom du client et le nombre total de ses réservations
         $info = "Réservation de " . $this . "<br>";
         $info .= count($this->reservations) . "Réservations<br>";
 
         // Parcourt toutes les réservations du client pour inclure les détails dans l'information
-        foreach($this->reservations as $reservation)
-        {
+        foreach ($this->reservations as $reservation) {
             $chambre = $reservation->getChambre(); // Obtient la chambre pour chaque réservation
             $hotel = $chambre->getHotel(); // Obtient l'hôtel de cette chambre
 
             // Détails de chaque réservation, y compris l'hôtel, la chambre, et les dates
             $info .= "Hotel " . $hotel->__toString() . " / Chambre : " . $chambre->getNumero() . " - " . $chambre->getPrix() . "€ " . $reservation->__toString() . "<br>";
         }
-            // Montant total à payer pour toutes les réservations du client
-             $info .= "Total : " . $this->montantTotalReservation() . " €";
-             return $info;
+        // Montant total à payer pour toutes les réservations du client
+        $info .= "Total : " . $this->montantTotalReservation() . " €";
+        return $info;
     }
 
     // Méthode pour calculer le montant total à regler pour toutes ses reservations
@@ -101,8 +100,7 @@ class Client
         $montantTotal = 0;
 
         // Parcourt chaque réservation du client et additionne leur montant total
-        foreach($this->reservations as $reservation)
-        {
+        foreach ($this->reservations as $reservation) {
             $montantTotal += $reservation->montantTotal();
         }
         return $montantTotal;
@@ -114,4 +112,3 @@ class Client
         return $this->nom . " " . $this->prenom;
     }
 }
-?>

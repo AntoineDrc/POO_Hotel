@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // Cette commande sert à charger les classes présentes dans un autre script
 spl_autoload_register(function ($class_name) {
@@ -27,8 +27,3 @@ echo $hotel2->afficherReservations() . "<br><br>";
 echo $client1->showClientReservation() . "<br><br><br>";
 
 echo $hotel1->statutChambre() . "<br>";
-
-
-
-?>
-

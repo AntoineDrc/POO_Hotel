@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // Création d'une classe Reservation
 class Reservation
@@ -89,6 +89,3 @@ class Reservation
         return " du : " . $this->getDateEntree() . " au " . $this->getDateSortie();
     }
 }
-
-
-?>  

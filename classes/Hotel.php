@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // Création d'une classe Hotel
 class Hotel
@@ -59,7 +59,7 @@ class Hotel
     // Méthode pour ajouter des reservations automatiquement aux chambres
     public function addReservation(Reservation $reservation)
     {
-        $this->reservations[] = $reservation; 
+        $this->reservations[] = $reservation;
     }
 
     // Méthode pour afficher les réservations de l'hôtel
@@ -72,45 +72,42 @@ class Hotel
             return $info;
         }
 
-        foreach ($this->reservations as $reservation) {        
-            $client= $reservation->getClient(); // Récupère le client de chaque réservation
+        foreach ($this->reservations as $reservation) {
+            $client = $reservation->getClient(); // Récupère le client de chaque réservation
             $info .= $client . " ";
             $info .= $this;
             $info .= $reservation . "<br>";
-    
         }
-            return $info;
+        return $info;
     }
 
 
     // Méthode pour ajouter des chambres automatiquement à l'hotel
     public function addChambre(Chambre $chambre)
     {
-        $this->chambres[] = $chambre;   
+        $this->chambres[] = $chambre;
     }
 
     // Méthode pour afficher les informations de l'hôtel et les réservations pour chaque chambre    
     public function infoHotel()
     {
         // Prépare une chaîne d'information de base sur l'hôtel
-        $info = $this ."<br>"
-        . $this->adresse . "<br>"
-        . "Nombre de chambres : " . count($this->chambres) . "<br>";
+        $info = $this . "<br>"
+            . $this->adresse . "<br>"
+            . "Nombre de chambres : " . count($this->chambres) . "<br>";
 
         // Compte le nombre de chambres qui ont au moins une réservation
         $chambresReservees = 0;
-        foreach($this->chambres as $chambre)
-        {   
-            if(count($chambre->getReservations()) > 0)
-            {
+        foreach ($this->chambres as $chambre) {
+            if (count($chambre->getReservations()) > 0) {
                 $chambresReservees++;
             }
         }
         // Ajoute le nombre de chambres réservées et disponibles à la chaîne d'information
-         $info .= "Chambres réservées : " . $chambresReservees . "<br>";
-         $info .= "Chambres disponibles : " . count($this->chambres) - ($chambresReservees) . "<br>";
+        $info .= "Chambres réservées : " . $chambresReservees . "<br>";
+        $info .= "Chambres disponibles : " . count($this->chambres) - ($chambresReservees) . "<br>";
 
-         return $info;
+        return $info;
     }
 
     // Méthode pour affiche le statut des chambres
@@ -119,7 +116,7 @@ class Hotel
         // 🛜
         $info = "Statut des chambres de <strong>l'hôtel " . $this->__toString() . "</strong><br>";
         $info .=
-        "<table cellpadding='10'>
+            "<table cellpadding='10'>
             <thead>
                 <tr>
                     <th>Chambre</th>
@@ -129,29 +126,28 @@ class Hotel
                 </tr>
             </thead>
             <tbody>";
-            foreach ($this->chambres as $chambre)
-            {
-                $wifi = $chambre->getWifi() ? "🛜" : "Non";
-                $statut = $chambre->getStatut() ? "Disponible" : "Reservée";
+        foreach ($this->chambres as $chambre) {
+            $wifi = $chambre->getWifi() ? "🛜" : "Non";
+            $statut = $chambre->getStatut() ? "Disponible" : "Reservée";
 
-                $info .= "<tr>
+            $info .= "<tr>
                             <td>" . $chambre->__toString() . "</td>
                             <td>" . $chambre->getPrix() . "€</td>
                             <td>" . $wifi . "</td>";
-                
-                if ($chambre->getStatut()) {
-                    $info .= "<td style='background-color: #90EE90;'>" . $statut . "</td>";
-                } else {
-                    $info .= "<td style='background-color: #F00020;'>" . $statut . "</td>";
-                }
-                $info .= "</tr>";
-            }   
-            $info .= 
+
+            if ($chambre->getStatut()) {
+                $info .= "<td style='background-color: #90EE90;'>" . $statut . "</td>";
+            } else {
+                $info .= "<td style='background-color: #F00020;'>" . $statut . "</td>";
+            }
+            $info .= "</tr>";
+        }
+        $info .=
             "</tbody>
         </table>";
         return $info;
     }
-    
+
     // Création d'une méthode toString
     public function __toString()
     {
@@ -161,4 +157,4 @@ class Hotel
 
 
 ?>
-    <!-- $info .= $chambre->__toString() . " " . $chambre->getPrix() . "€" . " " . ($chambre->getWifi() ? "oui" : "Non") . " " . ($chambre->getStatut() ? "Disponible" : "Occupée") . "<br>"; -->
+<!-- $info .= $chambre->__toString() . " " . $chambre->getPrix() . "€" . " " . ($chambre->getWifi() ? "oui" : "Non") . " " . ($chambre->getStatut() ? "Disponible" : "Occupée") . "<br>"; -->

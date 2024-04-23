@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // Création d'une classe Chambre
 class Chambre
@@ -85,9 +85,9 @@ class Chambre
     }
 
     public function getReservations()
-   {
-       return $this->reservations;
-   }
+    {
+        return $this->reservations;
+    }
 
     // Méthode pour ajouter des reservations automatiquement aux chambres
     public function addReservation(Reservation $reservation)
@@ -101,6 +101,4 @@ class Chambre
     {
         return "Chambre " . $this->numero;
     }
-
 }
-?>
